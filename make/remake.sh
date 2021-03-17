@@ -1,6 +1,4 @@
 #!/bin/bash
 
-MAKE=/Library/Developer/CommandLineTools/usr/bin/make
-
-$MAKE
+make
 rm -f file.count tmp.txt

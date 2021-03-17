@@ -1,20 +1,17 @@
 .\" Manpage for liblist.
-.TH man 3 "14 March 2021" "1.0" "liblist man page"
-.SH NAME
-.B
-liblist
-\-\- chained list manipulation functions
-.SH LIBRARY
+.Dd March 14, 2021
+.Dt LIBLIST 3
+.Sh NAME
+.Nm liblist
+.Nd chained list manipulation functions
+.Sh LIBRARY
 Chained list C library (liblist -llist)
-.SH SYNOPSIS
-.B
-#include \<list.h\>
-.SH DESCRIPTION
-The
-.B
-list
-library provides a bunch of simple and efficient functions to manipulate a basic chained list defined as
-.P
+.Sh SYNOPSIS
+.In list.h
+.Sh DESCRIPTION
+The list library provides a bunch of simple and efficient functions to manipulate a basic chained list defined as
+.Pp
+.Bd -literal -offset indent
 typedef struct			s_list
 .br
 {
@@ -24,69 +21,44 @@ typedef struct			s_list
 	struct s_list *	next;
 .br
 }					t_list;
-.SH STANDARDS
+.Ed
+.Sh STANDARDS
 The
-.B
-list
-library conforms to ISO/IEC 9899:1999 (``ISO C99'').
-.SH LIST OF FUNCTIONS
-.B
-Function				Description
-.br
--lst_new				allocates a list member
-.br
--lst_push_front		inserts a new member in front of a list
-.br
--lst_push_back			appends a new member at the end of a list
-.br
--lst_push_at			inserts a new member at the desired position in a list
-.br
--lst_create			initializes a new list from a size and an array of pointers
-.br
--lst_clear			clears a list
-.br
--lst_clear_a			at first call attaches a list to the function, at second call clears the attached list
-.br
--lst_last				returns the last member of a list
-.br
--lst_size				returns the size of a list
-.br
--lst_rm_last			removes the last member of a list
-.br
--lst_rm_first			removes the first member of a list
-.br
--lst_rm_if			calls a check function on each member of a list, if the function returns 1 it removes the member
-.br
--lst_rm_if_eq			compares each member of a list with a reference data, if the compare function returns 0 it removes the member
-.br
--lst_rm_at			removes one member of a list with an index
-.br
--lst_apply_all			applies a function to each member of a list
-.br
--lst_apply_if			calls a check function on each member of a list, if the function returns 1 it applies the apply function to the member
-.br
--lst_apply_if_eq		compares each member of a list with a reference data, if the compare function returns 0 it applies the apply function to the member
-.br
--lst_at				returns the n'th member of a list
-.br
--lst_sort				sorts a list from smallest to biggest using a custom compare function
-.br
--lst_invert_sort		sorts a list from biggest to smallest using a custom compare function
-.br
--lst_merge			merges two lists together
-.br
--lst_merge_sorted		merges two lists together and sorts the final list from smallest to biggest
-.br
--lst_merge_invert_sorted	merges two lists together and sorts the final list from biggest to smallest
-.br
--lst_shuffle			shuffles all elements of a list
-.br
--lst_dup				duplicates a list using a duplicate function on each member
-.br
--lst_dup_from			duplicates a list from a position using a duplicate function on each member
-.br
--lst_ndup				duplicates the n first members of a list using a duplicate function on each
-.br
--lst_ndup_from			duplicates the n first members of a list from a position using a duplicate function on each
-.br
--lst_rev				reverses a list (last element becomes the first)
+.Nm
+library conforms to
+.St -isoC-99 .
+.Sh LIST OF FUNCTIONS
+.Bl -column "Description"
+.It Sy "Function	Description"
+.It "lst_new	allocates a new list member"
+.It "lst_push_front	inserts a new member in front of a list"
+.It "lst_push_back	appends a new member at the end of a list"
+.It "lst_push_at	inserts a new member at the desired position in a list"
+.It "lst_create	initializes a new list from a size and an array of pointers"
+.It "lst_clear	clears a list"
+.It "lst_clear_a	at first call attaches a list to the function, at second call clears the attached list"
+.It "lst_last	returns the last member of a list"
+.It "lst_size	returns the size of a list"
+.It "lst_rm_last	removes the last member of a list"
+.It "lst_rm_first	removes the first member of a list"
+.It "lst_rm_if	calls a check function on each member of a list, if the function returns 1 it removes the member"
+.It "lst_rm_if_eq	compares each member of a list with a reference data, if the compare function returns 0 it removes the member"
+.It "lst_rm_at	removes one member of a list with an index"
+.It "lst_apply_all	applies a function to each member of a list"
+.It "lst_apply_if	calls a check function on each member of a list, if the function returns 1 it applies the apply function to the member"
+.It "lst_apply_if_eq	"
+.It " 	compares each member of a list with a reference data, if the compare function returns 0 it applies the apply function to the member"
+.It "lst_at	returns the n'th member of a list"
+.It "lst_sort	sorts a list from smallest to biggest using a custom compare function"
+.It "lst_invert_sort	sorts a list from biggest to smallest using a custom compare function"
+.It "lst_merge	merges two lists together"
+.It "lst_merge_sorted	"
+.It " 	merges two lists together and sorts the final list from smallest to biggest"
+.It "lst_merge_invert_sorted	"
+.It " 	merges two lists together and sorts the final list from biggest to smallest"
+.It "lst_shuffle	shuffles all elements of a list"
+.It "lst_dup	duplicates a list using a duplicate function on each member"
+.It "lst_dup_from	duplicates a list from a position using a duplicate function on each member"
+.It "lst_ndup	duplicates the n first members of a list using a duplicate function on each"
+.It "lst_ndup_from	duplicates the n first members of a list from a position using a duplicate function on each"
+.It "lst_rev	reverses a list (last element becomes the first)"
