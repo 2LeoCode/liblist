@@ -6,7 +6,7 @@
 #    By: lsuardi <lsuardi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/19 23:12:58 by lsuardi           #+#    #+#              #
-#    Updated: 2021/03/16 15:40:05 by lsuardi          ###   ########.fr        #
+#    Updated: 2021/03/18 22:04:23 by lsuardi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRC =		$(addsuffix $(word 1, $(.SUFFIXES)),\
 			rm\
 			shuffle\
 			size\
-			sort))
+			sort\
+			prev))
 INC =		$(addsuffix $(word 2, $(.SUFFIXES)),\
 			list)
 OBJ =		$(SRC:$(word 1, $(.SUFFIXES))=$(word 3, $(.SUFFIXES)))

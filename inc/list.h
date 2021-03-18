@@ -6,7 +6,7 @@
 /*   By: lsuardi <lsuardi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 14:42:58 by lsuardi           #+#    #+#             */
-/*   Updated: 2021/03/18 21:07:30 by lsuardi          ###   ########.fr       */
+/*   Updated: 2021/03/18 22:07:58 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,11 @@ apply_f);
 ** lst_at.c
 */
 t_list *				lst_at(const t_list *, size_t);
+
+/*
+** lst_prev.c
+*/
+t_list *				lst_prev(const t_list *, const t_list *);
 
 /*
 ** lst_sort.c
