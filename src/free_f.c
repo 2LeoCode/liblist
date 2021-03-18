@@ -6,7 +6,7 @@
 /*   By: lsuardi <lsuardi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 21:58:43 by lsuardi           #+#    #+#             */
-/*   Updated: 2021/03/15 22:17:26 by lsuardi          ###   ########.fr       */
+/*   Updated: 2021/03/17 20:01:42 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void *	two_dimensional_data_free_f(void ** data)
 		return (NULL);
 	while (lst)
 	{
-		destroy(&lst->data);
+		_destroy(&lst->data);
 		free(lst);
 		lst = lst->next;
 	}

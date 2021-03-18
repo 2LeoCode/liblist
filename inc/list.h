@@ -6,7 +6,7 @@
 /*   By: lsuardi <lsuardi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 14:42:58 by lsuardi           #+#    #+#             */
-/*   Updated: 2021/03/16 15:36:02 by lsuardi          ###   ########.fr       */
+/*   Updated: 2021/03/17 22:00:17 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@
 
 # define LST_FAILURE -1
 # define LST_SUCCESS 0
-# define default_dup_f lst_new
-# define default_free_f destroy
+# define default_dup_f _dup_string
+# define default_free_f _destroy
 # define SHARE_DATA NULL
-# define DUP_DFLT &default_dup_f
-# define DUP_2 &two_dimensional_dup_f
+# define DUP_STRING &default_dup_f
 # define DUP_2_SHARE &two_dimensional_share_dup_f
-# define DUP_3 &three_dimensional_dup_f
 # define DUP_3_SHARE &three_dimensional_share_dup_f
+# define ATTACHED NULL
 # define NO_FREE NULL
 # define FREE_DFLT &default_free_f
 # define FREE_2 &two_dimensional_free_f
@@ -40,10 +39,10 @@ typedef struct			s_list
 
 typedef int				(*cmp_f)(const void *, const void *);
 typedef int				(*check_f)(const void *);
-typedef void			(*apply_f)(void *);
+typedef int				(*apply_f)(void **);
 typedef int				(*rand_f)(int);
 typedef void *			(*free_f)(void **);
-typedef t_list *		(*dup_f)(const void *);
+typedef void *			(*dup_f)(const void *);
 
 /*
 ** lst_new.c
@@ -90,9 +89,9 @@ int						lst_rm_at(t_list **, size_t, free_f);
 /*
 ** lst_apply.c
 */
-size_t					lst_apply_all(t_list *, apply_f);
-size_t					lst_apply_if(t_list *, check_f, apply_f);
-size_t					lst_apply_if_eq(t_list *, const void *, cmp_f,
+int						lst_apply_all(t_list *, apply_f);
+int						lst_apply_if(t_list *, check_f, apply_f);
+int						lst_apply_if_eq(t_list *, const void *, cmp_f,
 apply_f);
 
 /*
@@ -140,9 +139,7 @@ void					lst_rev(t_list * lst);
 **
 ** dup_f.c
 */
-t_list *				two_dimensional_dup_f(const void *);
 t_list *				two_dimensional_share_dup_f(const void *);
-t_list *				three_dimensional_dup_f(const void *);
 t_list *				three_dimensional_share_dup_f(const void *);
 
 /*
@@ -158,7 +155,8 @@ void *					three_dimensional_data_free_f(void **);
 ** [utilities for the library]
 ** [you can ignore this part]
 */
-void					swap_ptr(void **, void **);
-void *					destroy(void **);
+void					_swap_ptr(void **, void **);
+void *					_destroy(void **);
+void *					_dup_string(const void *);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lsuardi <lsuardi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 19:23:13 by lsuardi           #+#    #+#             */
-/*   Updated: 2021/03/15 19:31:27 by lsuardi          ###   ########.fr       */
+/*   Updated: 2021/03/17 21:45:06 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	lst_shuffle(t_list * lst, rand_f rand_function)
 	while (it)
 	{
 		n = (*rand_function)((int)size);
-		swap_ptr(&lst_at(lst, n)->data, &it->data);
+		_swap_ptr(&lst_at(lst, n)->data, &it->data);
 		it = it->next;
 	}
 }

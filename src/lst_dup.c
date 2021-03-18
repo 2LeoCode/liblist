@@ -6,7 +6,7 @@
 /*   By: lsuardi <lsuardi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 19:33:42 by lsuardi           #+#    #+#             */
-/*   Updated: 2021/03/15 21:45:28 by lsuardi          ###   ########.fr       */
+/*   Updated: 2021/03/17 20:47:32 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ free_f free_function)
 			return (lst_clear(&new_lst, free_function));
 		src = src->next;
 	}
+	it->next = NULL;
 	return (new_lst);
 }
 
@@ -62,9 +63,9 @@ free_f free_function)
 	else if (!(it->data = (*dup_function)(src->data)))
 		return (lst_clear(&new_lst, free_function));
 	src = src->next;
-	while (n-- && src)
+	while (--n && src)
 	{
-		if (!(it->next = (*dup_function)(src->data)))
+		if (!(it->next = malloc(sizeof(t_list))))
 			return (lst_clear(&new_lst, free_function));
 		it = it->next;
 		if (!dup_function)
@@ -73,6 +74,7 @@ free_f free_function)
 			return (lst_clear(&new_lst, free_function));
 		src = src->next;
 	}
+	it->next = NULL;
 	return (new_lst);
 }
 
