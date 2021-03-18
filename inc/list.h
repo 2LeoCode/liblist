@@ -6,7 +6,7 @@
 /*   By: lsuardi <lsuardi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 14:42:58 by lsuardi           #+#    #+#             */
-/*   Updated: 2021/03/17 22:00:17 by lsuardi          ###   ########.fr       */
+/*   Updated: 2021/03/18 21:07:30 by lsuardi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # define default_free_f _destroy
 # define SHARE_DATA NULL
 # define DUP_STRING &default_dup_f
+# define DUP_2_STRING &two_dimensional_dup_f
+# define DUP_3_STRING &three_dimensional_dup_f
 # define DUP_2_SHARE &two_dimensional_share_dup_f
 # define DUP_3_SHARE &three_dimensional_share_dup_f
 # define ATTACHED NULL
@@ -139,8 +141,10 @@ void					lst_rev(t_list * lst);
 **
 ** dup_f.c
 */
-t_list *				two_dimensional_share_dup_f(const void *);
-t_list *				three_dimensional_share_dup_f(const void *);
+void *					two_dimensional_dup_f(const void *);
+void *					three_dimensional_dup_f(const void *);
+void *					two_dimensional_share_dup_f(const void *);
+void *					three_dimensional_share_dup_f(const void *);
 
 /*
 ** free_f.c
